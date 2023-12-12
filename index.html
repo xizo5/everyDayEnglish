@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>每日一句</title>
+</head>
+<body>
+ <h1>每日一句</h1>
+ <p id="quote"></p>
+ <script>
+   // 获取每日一句的 API
+   const apiUrl = 'https://api.quotable.io/random';
+
+   // 获取引用元素
+   const quoteElement = document.getElementById('quote');
+
+   // 获取每日一句
+   fetch(apiUrl)
+     .then(response => response.json())
+     .then(data => {
+       // 设置引用内容
+       quoteElement.textContent = `"${data.content}" - ${data.author}`;
+     });
+ </script>
+</body>
+</html>
